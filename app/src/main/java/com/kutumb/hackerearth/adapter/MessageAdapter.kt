@@ -36,13 +36,15 @@ class MessageAdapter(
         holder.binding.apply {
             messaeg.text = messagelist.msg
             val OTP = messagelist.msg
-            if(OTP.contains("OTP")){
-                otp.visibility = View.VISIBLE
-            }else{
-                otp.visibility = View.GONE
+            if (OTP != null) {
+                if(OTP.contains("OTP")){
+                    otp.visibility = View.VISIBLE
+                }else{
+                    otp.visibility = View.GONE
+                }
             }
             sender.text = messagelist.address
-            val netdate = getShortDate(messagelist.time.toLong())
+            val netdate = getShortDate(messagelist.time?.toLong())
             time.text = netdate.toString()
         }
 
