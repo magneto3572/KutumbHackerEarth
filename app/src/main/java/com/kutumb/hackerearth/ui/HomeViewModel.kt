@@ -29,11 +29,9 @@ class HomeViewModel @Inject constructor(): ViewModel() {
     fun getAllSms(context : Activity) {
         viewModelScope.launch {
             try {
-                coroutineScope {
-                    val myMessage = async { getsms(context) }
-                    val myMessagefromstorage = myMessage.await()
-                    _myMessage.value = myMessagefromstorage
-                }
+                val myMessage = async { getsms(context) }
+                val myMessagefromstorage = myMessage.await()
+                _myMessage.value = myMessagefromstorage
             } catch (e: Exception) {
                 Log.d("LogExecption", e.toString())
             }

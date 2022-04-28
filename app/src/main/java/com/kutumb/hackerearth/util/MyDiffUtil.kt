@@ -31,5 +31,4 @@ class MyDiffUtil(
             else -> true
         }
     }
-
 }
